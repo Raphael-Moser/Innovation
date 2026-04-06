@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Status das Integrações">
+        <template if:true={records}>
+            <div class="container">
+                <template for:each={records} for:item="item">
+                    <div key={item.Id} class={item.cssClass}>
+                        {item.Name} - {item.LastStatusReceived__c}
+                    </div>
+                </template>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <p class="error">Erro ao carregar dados</p>
+        </template>
+    </lightning-card>
+</template>
